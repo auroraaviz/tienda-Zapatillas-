@@ -29,11 +29,7 @@ $stmtCheck->execute();
 $resultCheck = $stmtCheck->get_result();
 $usuarioBorrar = $resultCheck->fetch_assoc();
 
-// Evitar eliminar administrador
-if ($usuarioBorrar['rol'] === 'administrador') {
-    header("Location: gestionar_usuarios.php?error=admin_delete");
-    exit();
-}
+
 
 // Eliminar usuario
 $sql = "DELETE FROM USUARIOS WHERE id_usuario = ?";
